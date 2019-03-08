@@ -1,0 +1,31 @@
+{
+  "name": "mighty-input",
+  "version": "0.1.1",
+  "description": "NPM Lite is npm package repository boilerplate.",
+  "main": "dist/mighty-input.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rumkin/mighty-input.git"
+  },
+  "peerDependencies": {
+    "react": "^16.0.0"
+  },
+  "keywords": [
+    "react",
+    "ui",
+    "component",
+    "input",
+    "text",
+    "field",
+    "html"
+  ],
+  "author": "Rumkin <dev@rumk.in> (https://rumk.in/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rumkin/mighty-input/issues"
+  },
+  "homepage": "https://github.com/rumkin/mighty-input#readme"
+}
