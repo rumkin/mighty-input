@@ -1,6 +1,6 @@
 {
   "name": "mighty-input",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "NPM Lite is npm package repository boilerplate.",
   "main": "dist/mighty-input.js",
   "scripts": {
