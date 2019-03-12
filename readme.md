@@ -55,6 +55,10 @@ Filtrate any non-digit values:
 />
 ```
 
+### References
+
+It was inspired by [LDT](https://github.com/kueblc/LDT) by [Colin Kuebler](https://github.com/kueblc). 
+
 ## License
 
 MIT © [Rumkin](https://rumk.in)
