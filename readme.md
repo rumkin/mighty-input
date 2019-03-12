@@ -4,7 +4,7 @@ Tiny React text input component for the modern web. Use HTML to decorate
 `<input />` value for your goals.
 
 <p align="center">
-  <img width="420" src="https://raw.githubusercontent.com/rumkin/mighty-input/HEAD/docs/mighty-input.gif" />
+  <img width="720" src="https://raw.githubusercontent.com/rumkin/mighty-input/HEAD/docs/mighty-input.gif" />
 </p>
 
 ## Installation
