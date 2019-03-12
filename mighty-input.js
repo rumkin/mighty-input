@@ -140,6 +140,7 @@ export default class MightyInput extends Component {
   shouldComponentUpdate(props, state) {
     if (
       props.value === this.state.value &&
+      state.focus === this.state.focus &&
       this.props.render === props.render &&
       this.props.filter === props.filter &&
       this.props.onUpdate === props.onUpdate &&
