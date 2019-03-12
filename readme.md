@@ -15,10 +15,10 @@ npm i mighty-input
 
 ### Live examples
 
-* [Highlight error](https://mighty-input.now.sh/#highlight-error)
+* [Message Input](https://mighty-input.now.sh/#message-input)
+* [Highlight errors](https://mighty-input.now.sh/#highlight-errors)
 * [Phone number input](https://mighty-input.now.sh/#phone-number)
 * [Number groups](https://mighty-input.now.sh/#number-groups)
-* [Message Input](https://mighty-input.now.sh/#message-input)
 * [Fixed input value](https://mighty-input.now.sh/#fixed-input-value)
 
 ## Usage
