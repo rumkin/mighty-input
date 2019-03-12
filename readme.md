@@ -4,7 +4,7 @@ Tiny React text input component for the modern web. Use HTML to decorate
 `<input />` value for your goals.
 
 <p align="center">
-  <img width="420" src="./docs/mighty-input.png" />
+  <img width="420" src="https://raw.githubusercontent.com/rumkin/mighty-input/HEAD/docs/mighty-input.gif" />
 </p>
 
 ## Installation
@@ -12,6 +12,14 @@ Tiny React text input component for the modern web. Use HTML to decorate
 ```shell
 npm i mighty-input
 ```
+
+### Live examples
+
+* [Highlight error](https://mighty-input.now.sh/#highlight-error)
+* [Phone number input](https://mighty-input.now.sh/#phone-number)
+* [Number groups](https://mighty-input.now.sh/#number-groups)
+* [Message Input](https://mighty-input.now.sh/#message-input)
+* [Fixed input value](https://mighty-input.now.sh/#fixed-input-value)
 
 ## Usage
 

@@ -9,6 +9,7 @@ styles.wrapper = {
   minWidth: "100px",
   overflow: "hidden",
   textAlign: "left",
+  verticalAlign: "bottom",
 };
 
 styles.wrapperDefault = {
@@ -52,6 +53,7 @@ styles.input = {
 };
 
 styles.stub = {
+  display: "block",
   position: "fixed",
   left: "-10000px",
   opacity: 0,
@@ -135,6 +137,24 @@ export default class MightyInput extends Component {
     this.setState({ value: this.props.value || "" });
   }
 
+  shouldComponentUpdate(props, state) {
+    if (
+      props.value === this.state.value &&
+      this.props.render === props.render &&
+      this.props.filter === props.filter &&
+      this.props.onUpdate === props.onUpdate &&
+      this.props.onChange === props.onChange &&
+      this.props.modifiers === props.modifiers
+    ) {
+      return false;
+    }
+
+    this.setState({
+      value: props.value,
+    });
+    return true;
+  }
+
   componentDidMount() {
     const { stubEl, inputEl, placeholderEl, wrapperEl, inWrapperEl } = this;
     const style = window.getComputedStyle(this.inputEl);
@@ -152,7 +172,6 @@ export default class MightyInput extends Component {
       inputEl.offsetHeight + (scrollbar.height || 20) + "px";
     inputEl.addEventListener("beforeinput", e => {
       this.setState({
-        ...this.state,
         input: new InputData(
           e.inputType,
           e.data,
@@ -170,7 +189,6 @@ export default class MightyInput extends Component {
     }
 
     this.setState({
-      ...this.state,
       focus: flag,
     });
   }
@@ -182,7 +200,6 @@ export default class MightyInput extends Component {
     const newValue = filter(e.target.value, value, input);
 
     this.setState({
-      ...this.state,
       value: newValue,
       input: new InputData(),
     });
@@ -194,7 +211,7 @@ export default class MightyInput extends Component {
   }
 
   updateWidth() {
-    this.stubEl.textContent = this.inputEl.value;
+    this.stubEl.textContent = this.state.value;
     this.placeholderEl.style.width = this.inputEl.style.width =
       2 + this.stubEl.offsetWidth + "px";
   }
@@ -246,10 +263,14 @@ export default class MightyInput extends Component {
             }}
             value={value}
           />
-          <span style={styles.placeholder} ref={this.placeholderRef}>
-            {render(value)}
+          <span
+            aria-hidden
+            style={styles.placeholder}
+            ref={this.placeholderRef}
+          >
+            {render(value) || "\u200B"}
           </span>
-          <span ref={this.stubRef} style={styles.stub} />
+          <span aria-hidden ref={this.stubRef} style={styles.stub} />
         </span>
       </span>
     );
