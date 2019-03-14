@@ -7,7 +7,9 @@ Tiny React text input component for the modern web. Use HTML to decorate
   <img width="720" alt="Mighty input example GIF" src="https://raw.githubusercontent.com/rumkin/mighty-input/HEAD/docs/mighty-input.gif" />
 </p>
 
-👇 Source from the gif 👆. CSS could be found in [examples](examples) folder.
+<p align="center">
+  👇 Source of the preview 👆
+</p>
 
 ```javascript
 export default function AnimatedInput({ value, ...props }) {
@@ -35,6 +37,7 @@ function getCharType(char, index) {
 }
 ```
 
+CSS could be found in [examples](examples) folder.
 
 ## Installation
 
