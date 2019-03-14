@@ -27,9 +27,9 @@ function AnimatedInput({ value, ...props }) {
 
 function getCharType(char, index) {
   switch (char) {
-    case "\ud83d\ude00": // Smiley face emoji
+    case "😀": // Smiley face emoji
       return "smiley";
-    case "\ud83d\udc97": // Heart emoji
+    case "💗": // Heart emoji
       return "heart";
     default:
       return "char";
