@@ -12,7 +12,7 @@ Tiny React text input component for the modern web. Use HTML to decorate
 </p>
 
 ```javascript
-export default function AnimatedInput({ value, ...props }) {
+function AnimatedInput({ value, ...props }) {
   const render = nextValue => Array.from(nextValue)
   .map((char, i) => (
     <span key={i} className={`animation-${getCharType(char)}`}>
