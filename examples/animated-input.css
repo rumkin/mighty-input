@@ -1,0 +1,60 @@
+.animation-char {
+  display: inline-block;
+  animation: raise 1s 0s linear;
+}
+
+.animation-smiley {
+  display: inline-block;
+  animation: raise 1s 0s linear, spin 5s 0s linear infinite;
+  transform-origin: 40% 45%;
+}
+
+.animation-heart {
+  display: inline-block;
+  animation: raise 1s 0s linear, heartbeat 1s 0s linear infinite;
+}
+
+@keyframes raise {
+  from {
+    transform: scale(0.3);
+    opacity: 0.2;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes heartbeat {
+  from {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(1.25);
+  }
+
+  26% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.25);
+  }
+
+  51%,
+  to {
+    transform: scale(1);
+  }
+}

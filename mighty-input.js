@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 const styles = {};
 
@@ -90,7 +90,7 @@ class InputData {
   }
 }
 
-export default class MightyInput extends Component {
+export default class MightyInput extends React.Component {
   static defaultProps = {
     filter: v => v,
     render: v => v,
@@ -139,7 +139,8 @@ export default class MightyInput extends Component {
 
   shouldComponentUpdate(props, state) {
     if (
-      props.value === this.state.value &&
+      props.value === this.props.value &&
+      state.value === this.state.value &&
       state.focus === this.state.focus &&
       this.props.render === props.render &&
       this.props.filter === props.filter &&
@@ -150,9 +151,9 @@ export default class MightyInput extends Component {
       return false;
     }
 
-    this.setState({
-      value: props.value,
-    });
+    if (props.value !== this.props.value) {
+      this.setState({value: props.value});
+    }
     return true;
   }
 

@@ -4,8 +4,37 @@ Tiny React text input component for the modern web. Use HTML to decorate
 `<input />` value for your goals.
 
 <p align="center">
-  <img width="720" src="https://raw.githubusercontent.com/rumkin/mighty-input/HEAD/docs/mighty-input.gif" />
+  <img width="720" alt="Mighty input example GIF" src="https://raw.githubusercontent.com/rumkin/mighty-input/HEAD/docs/mighty-input.gif" />
 </p>
+
+👇 Source from the gif 👆. CSS could be found in [examples](examples) folder.
+
+```javascript
+export default function AnimatedInput({ value, ...props }) {
+  const render = nextValue => Array.from(nextValue)
+  .map((char, i) => (
+    <span key={i} className={`animation-${getCharType(char)}`}>
+      {char}
+    </span>
+  ));
+
+  return (
+    <MightyInput value={value} render={render} {...props}/>
+  );
+}
+
+function getCharType(char, index) {
+  switch (char) {
+    case "\ud83d\ude00": // Smiley face emoji
+      return "smiley";
+    case "\ud83d\udc97": // Heart emoji
+      return "heart";
+    default:
+      return "char";
+  }
+}
+```
+
 
 ## Installation
 
@@ -13,7 +42,7 @@ Tiny React text input component for the modern web. Use HTML to decorate
 npm i mighty-input
 ```
 
-### Live examples
+## Live examples
 
 * [Message Input](https://mighty-input.now.sh/#message-input)
 * [Highlight errors](https://mighty-input.now.sh/#highlight-errors)
@@ -55,9 +84,52 @@ Filtrate any non-digit values:
 />
 ```
 
+## API
+
+### `render()`
+```
+(next:string, previous:string) -> string|React.Element
+```
+
+Render property is a function to transform value to HTML or another string. This function receives `next` and `previous` values of input field.
+
+```javascript
+<MightyInput render={
+  (next) => <span style={{color: 'red'}}>{next}</span>
+} />
+```
+
+### `filter()`
+```
+(next:string, previous:string) -> string
+```
+
+Filter property is a function to filtrate input and return new output value. This function receives `next` and `previous` values of input field.
+
+```javascript
+<MightyInput filter={
+  (next, prev) => next.length < 10 ? next : prev
+} />
+```
+
+### `onUpdate()`
+```
+(next:string, previous:string) -> void
+```
+Update event handler. It emits each time value (passed through `filter`) changes.
+
+### `modifiers{}`
+```
+{
+  focus:string = '--focus',
+}
+```
+
+Modifers property is an object with CSS classes for different states. It's using to simulate native CSS behavior for input wrapper. Currently it only has one option: `focus`.
+
 ### References
 
-It was inspired by [LDT](https://github.com/kueblc/LDT) by [Colin Kuebler](https://github.com/kueblc). 
+MightyInput is inspired by [Colin Kuebler](https://github.com/kueblc)'s [LDT](https://github.com/kueblc/LDT).
 
 ## License
 
